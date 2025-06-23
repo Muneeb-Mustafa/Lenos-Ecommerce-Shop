@@ -3,8 +3,7 @@ import path from "path";
 import express from "express";
 import ConnectDB from "./utils/db.js";
 import morgan from "morgan";
-import cors from "cors";
-import formidableMiddleware from "express-formidable";
+import cors from "cors"; 
 import authRoute from "./routes/authRoute.js";
 import categoryRoute from "./routes/categoryRoute.js";
 import productRoute from "./routes/productRoute.js";
@@ -20,7 +19,7 @@ const app = express();
 const port = process.env.PORT || 8080;
 
 // Connect to Database
-ConnectDB();
+await ConnectDB();
 
 // Middleware Configuration
 app.use(cors({

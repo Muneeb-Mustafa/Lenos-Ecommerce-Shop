@@ -1,5 +1,5 @@
 import bcrypt from "bcryptjs"
-import ConnectDB from "../utils/db";
+import ConnectDB from "../utils/db.js";
 
 
 export const hashPassword = async(password)=>{
