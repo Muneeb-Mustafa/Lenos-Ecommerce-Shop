@@ -54,7 +54,7 @@ export const login = async (req, res) => {
           createdAt: user.createdAt,
           updatedAt: user.updatedAt,
         },
-        token,
+        token, 
       });
     } catch (error) {
       console.log(error);

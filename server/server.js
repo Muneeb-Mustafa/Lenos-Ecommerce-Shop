@@ -23,7 +23,10 @@ const port = process.env.PORT || 8080;
 ConnectDB();
 
 // Middleware Configuration
-app.use(cors());
+app.use(cors({
+    origin: ['https://lenos-ecommerce-shop-5m6x.vercel.app/'],  
+    credentials: true,  
+  }));
 
 app.use(express.json()); // Parse JSON request body
 app.use(morgan('dev')); // Log HTTP requests
