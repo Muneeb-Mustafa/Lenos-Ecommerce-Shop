@@ -1,0 +1,33 @@
+
+
+.social-icon a {
+    margin-left: 15px;
+    color: #000000;
+    font-size: 25px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    -webkit-transition: transform 0.3s, box-shadow 0.3s;
+    -moz-transition: transform 0.3s, box-shadow 0.3s;
+    -ms-transition: transform 0.3s, box-shadow 0.3s;
+    -o-transition: transform 0.3s, box-shadow 0.3s;
+} 
+.row {
+    --bs-gutter-x: 0; 
+    --bs-gutter-y: 0; 
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(-.5 * var(--bs-gutter-x));
+    margin-left: calc(-.5 * var(--bs-gutter-x));
+  }
+  
+@media (max-width: 576px){
+    .social-icon {
+        display: flex;               
+        justify-content: center;     
+        margin-top: 10px;      
+    }
+    .foot2 img{
+        margin-top: 20px; 
+    }
+  }
+  

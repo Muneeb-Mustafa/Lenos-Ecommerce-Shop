@@ -1,0 +1,48 @@
+.sectionStyle {  
+background-image: url('../../src/assets/Images/Home/section4.jpg') !important;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 500px;  
+    padding: 50px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;  
+    text-align: center; 
+  }
+.sectionStyle h1{
+    font-family: playfair-display;
+    font-size: 80px;
+    margin-bottom: 30px;
+}  
+.sectionStyle h5{
+    font-size: 24px;
+    margin-bottom: 20px;
+}  
+.btn3{ 
+    color: #000;
+    font-weight: 600;
+    background-color: #fff;
+    padding: 14px 41px;
+    border: none;
+    border-radius: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}  
+.btn3:hover {
+    background-color: #AE845F;
+    color: #fff; 
+}
+
+@media (max-width: 576px){
+    .sectionStyle h5{
+        font-size: 18px;
+    }
+    .sectionStyle h1{
+        font-family: playfair-display;
+        font-size: 40px;
+        margin-bottom: 30px;
+    }  
+  }
+  

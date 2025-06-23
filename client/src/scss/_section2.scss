@@ -1,0 +1,17 @@
+.sect-2 {
+  padding: 100px 0px;
+}
+.sec-2 p{
+    text-align: left;
+    padding-right: 100px;
+    color: #767676;
+}
+@media (max-width: 576px) {
+  .sect-2 {
+    padding: 50px 0px;
+  }
+  .sect-2 p{
+    text-align: center;
+    padding: 0px 10px; 
+}
+}

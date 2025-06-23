@@ -1,0 +1,49 @@
+.icons{
+    font-size: 25px;
+    cursor: pointer;
+}
+.loc{
+    font-size: 14px;
+}
+.deal{
+    font-size: 14px;
+}
+.login{
+    color: #fff;
+    background-color: #ae845f;
+    border: none;
+    padding: 10px 20px;
+}
+.login:hover{
+    color: #fff;
+    background-color: #ae845f; 
+}
+.social-icons{
+    text-align: end;
+}
+.social-icons a {
+    margin-left: 15px;
+    color: #c5c5c5;
+    font-size: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    -webkit-transition: transform 0.3s, box-shadow 0.3s;
+    -moz-transition: transform 0.3s, box-shadow 0.3s;
+    -ms-transition: transform 0.3s, box-shadow 0.3s;
+    -o-transition: transform 0.3s, box-shadow 0.3s;
+}
+@media (max-width: 765px){
+    .bar1 { 
+        display: none;
+    }
+}  
+@media (max-width: 576px){
+    .bar1 { 
+        display: none;
+    }
+    .d-flex.justify-content-center.align-items-center {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align to the start */
+        margin-top: 10px; /* Optional: add space between login and cart */
+    }
+    
+  }

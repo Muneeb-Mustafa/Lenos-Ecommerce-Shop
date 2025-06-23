@@ -1,0 +1,17 @@
+.btn1 {
+    color: #fff;
+    background-color: #282828;
+    padding: 14px 41px;
+    border: none;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn1:hover {
+    background-color: #AE845F;
+    color: #fff; 
+}

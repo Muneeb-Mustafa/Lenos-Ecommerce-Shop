@@ -1,0 +1,22 @@
+/* Hide the toggle button on larger screens */
+@media (min-width: 768px) {
+    .sidebar-toggle-btn {
+      display: none;
+    }
+  
+    .desktop-sidebar {
+      display: flex !important; /* Ensure the sidebar is always visible on desktop */
+    }
+  }
+  
+  /* Show the toggle button on smaller screens */
+  @media (max-width: 768px) {
+    .desktop-sidebar {
+      display: none; /* Hide sidebar on mobile */
+    }
+  
+    .sidebar-toggle-btn {
+      display: block; /* Show the toggle button */
+    }
+  }
+  

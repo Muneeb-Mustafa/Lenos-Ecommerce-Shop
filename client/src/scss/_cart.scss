@@ -1,0 +1,81 @@
+.card-body {
+    padding: 1rem; /* Ensure padding for the cards */
+  }
+  
+  .d-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .ms-3 {
+    margin-left: 1rem;
+  }
+  
+  .card-img-top {
+    max-width: 100%;  
+    height: auto;
+  }
+  
+  .card {
+    margin-bottom: 20px;
+    margin-right: 20px;
+  } 
+  .btn2{
+    color: #fff;
+    background-color: #ae845f !important; 
+    font-weight: bold;
+    padding: 14px 41px;
+    border: none;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  .btn2:hover{
+    color: #fff;
+    background-color: #282828 !important; 
+  }
+  @media (max-width: 576px) {
+    .d-flex {
+      flex-direction: column; /* Stack items vertically on small screens */
+    }
+  
+    .d-flex .ms-3 {
+      margin-left: 0; /* Remove left margin on small screens */
+      margin-top: 10px; /* Add some space on top */
+    }
+  
+    .d-flex .fw-normal,
+    .d-flex .mb-0 {
+      font-size: 14px; /* Adjust font size for readability */
+    }
+  
+    .d-flex .card-img-top {
+      max-width: 120px; /* Scale image size for small screens */
+      margin: 0 auto; /* Center image */
+    }
+  
+    .d-flex .ms-3 h5 {
+      font-size: 16px; /* Smaller font size for product name */
+    }
+  
+    .d-flex .ms-3 p {
+      font-size: 12px; /* Smaller font size for description */
+    }
+  
+    .d-flex .fw-normal,
+    .d-flex .mb-0 {
+      font-size: 16px; /* Adjust font size for price and quantity */
+    }
+  
+    .d-flex .btn-danger {
+      width: 106%; /* Make the remove button full width on small screens */
+      margin-top: 10px; /* Add space between button and price */
+    }
+  
+     
+  }
+  

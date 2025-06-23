@@ -1,0 +1,16 @@
+.section4 p{
+    padding-right: 100px;
+    text-align: left;
+    color: #767676;
+}
+
+
+@media (max-width: 576px){
+    .section4 p{
+        text-align: center;
+        padding-right: 0px;
+    }
+    .btn1{
+        margin-bottom: 50px;
+    }
+  }

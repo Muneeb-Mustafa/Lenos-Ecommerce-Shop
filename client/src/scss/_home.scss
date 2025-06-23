@@ -1,0 +1,47 @@
+.products-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px; 
+}
+
+.card {
+  margin-bottom: 20px;
+  width: 100%;  
+}
+
+.inputField {
+  margin-right: 150px;
+}
+
+.filters {
+  margin-bottom: 50px;
+} 
+ 
+@media (min-width: 576px) and (max-width: 768px) {
+  .inputField {
+    margin-right: 100px;
+  }
+}
+ 
+@media (max-width: 576px) {
+ 
+  .col-md-9 {
+    text-align: center;
+  }
+
+  .products-container {
+    gap: 20px; 
+    padding-left: 20px;
+  }
+
+  .card {
+    width: 100%;  
+    margin: 0 auto;  
+  }
+  
+  .inputField {
+    margin-right: 0; 
+    width: 85%;  
+    margin: 0 auto;  
+  }
+}

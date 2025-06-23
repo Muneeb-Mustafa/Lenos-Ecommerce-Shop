@@ -1,0 +1,36 @@
+@import "./scss/bootstrap"; 
+@import "./scss/header";
+@import "./scss/Products";
+@import "./scss/home";
+@import "./scss/productdetail";
+@import "./scss/hero";
+@import "./scss/section";
+@import "./scss/section4";
+@import "./scss/.hero";
+@import "./scss/section3";
+@import "./scss/team";
+@import "./scss/contactForm";
+@import "./scss/footer";
+@import "./scss/ExampleCarouselImage";
+@import "./scss/section5";
+@import "./scss/imageSlider";
+@import "./scss/section2";
+@import "./scss/Sections3";
+@import "./scss/sections4";
+@import "./scss/cart";
+@import "./scss/sidebar";
+
+
+#root{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+main{
+  flex: 1 0 auto;
+}
