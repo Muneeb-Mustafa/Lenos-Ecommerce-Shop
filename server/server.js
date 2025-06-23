@@ -24,7 +24,7 @@ ConnectDB();
 
 // Middleware Configuration
 app.use(cors({
-    origin: ['https://lenos-ecommerce-shop-5m6x.vercel.app/'],  
+    origin: ['https://lenos-ecommerce-shop-5m6x.vercel.app'],  
     credentials: true,  
   }));
 
