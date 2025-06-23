@@ -1,8 +1,10 @@
 import jwt from "jsonwebtoken"
 import userModel from "../models/userSchema.js";
+import ConnectDB from "../utils/db.js";
 
 export const requireSignIn = async (req, res, next) => {
     try {
+      await ConnectDB();
         const token = req.headers.authorization?.split(" ")[1]; // Extract token
         if (!token) return res.status(401).send({ success: false, message: "Token is missing" });
         
@@ -18,6 +20,7 @@ export const requireSignIn = async (req, res, next) => {
 // Admin Access
 export const isAdmin = async (req, res, next) => {
     try {
+      await ConnectDB();
       const user = await userModel.findById(req.user.id); 
   
       // If user is not found

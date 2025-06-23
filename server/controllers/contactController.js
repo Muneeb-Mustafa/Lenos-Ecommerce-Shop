@@ -1,9 +1,10 @@
 import contact from "../models/contactForm.js";
-
+import ConnectDB from "../utils/db.js";
 
 
 const contactForm = async (req, res) => {
     try { 
+        await ConnectDB();
         const { name, email, website, message } = req.body;
         const newContact = new contact({ name, email, website, message });
         await newContact.save(); 

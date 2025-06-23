@@ -1,10 +1,12 @@
  import { comparePassword, hashPassword } from "../helpers/authHelper.js";
 import userModel from "../models/userSchema.js";
 import jwt from "jsonwebtoken"
+import ConnectDB from "../utils/db.js";
 
 // Register
 export const register = async(req, res)=>{
     try {
+        await ConnectDB();
         const {name, email, password, phone, answer, address} = req.body;
         if(!name) return res.status(400).json({error: "Name is required"})
         if(!email) return res.status(400).json({error: "Email is required"})
@@ -28,6 +30,7 @@ export const register = async(req, res)=>{
 // Login
 export const login = async (req, res) => {
     try {
+      await ConnectDB();
       const { email, password } = req.body;
       if (!email || !password) {
         return res.status(400).send({ success: false, error: "Invalid email or password" });
@@ -64,6 +67,7 @@ export const login = async (req, res) => {
 
   export  const forgetPassword = async(req, res)=>{
     try {
+      await ConnectDB();
       const {email, answer, newPassword} = req.body;
       // Check if email or password is missing
       if (!email ||!answer ||!newPassword) {
@@ -84,11 +88,9 @@ export const login = async (req, res) => {
     res.status(200).send({ success: true, message: "Admin access granted" });
   };
   
- 
-
-
 export const updateProfile = async (req, res) => {
   try {
+    await ConnectDB();
     const { name, email, password } = req.body;
 
     // Fetch the current user

@@ -5,6 +5,7 @@ import fs from "fs"
 import jwt from "jsonwebtoken" 
 import dotenv from "dotenv"
 import checkoutModel from "../models/checkoutSchema.js";
+import ConnectDB from "../utils/db.js";
 dotenv.config() 
 
 
@@ -12,6 +13,7 @@ dotenv.config()
 // Create Product 
 const createProduct = async(req, res)=>{
     try {
+        await ConnectDB();
         const {name, description, slug, price,category, quantity, shipping} = req.fields;
         const {photo} = req.files; 
         // Validation
@@ -43,6 +45,7 @@ const createProduct = async(req, res)=>{
 // Get Product 
 const getProducts = async(req, res)=>{
     try {
+        await ConnectDB();
         const products = await productModel.find({}).select("-photo").limit(12).sort({createdAt: -1})
         res.status(200).send({success: true, msg: "All product", countProduct: products.length, products})
     } catch (error) {
@@ -53,6 +56,7 @@ const getProducts = async(req, res)=>{
 // Get Single Product 
 const singleProduct = async(req, res)=>{
     try {
+        await ConnectDB();
         const product = await productModel.findOne({slug: req.params.slug}).select("-photo").populate("category")
         res.status(200).send({success: true, msg: "Single product fetched successfully", product})
     } catch (error) {
@@ -64,6 +68,7 @@ const singleProduct = async(req, res)=>{
 // Get Product Photo 
 const productPhoto = async(req, res)=>{
     try {
+        await ConnectDB();
         const product = await productModel.findById(req.params.pid).select("photo")
         if(product.photo.data){
             res.set('Content-Type', product.photo.contentType)
@@ -79,6 +84,7 @@ const productPhoto = async(req, res)=>{
 
 const deleteProduct = async(req, res)=>{
     try {
+        await ConnectDB();
         await productModel.findByIdAndDelete(req.params.pid)
         res.status(200).send({success: true, msg: "Product deleted successfully."})
     } catch (error) {
@@ -91,9 +97,7 @@ const deleteProduct = async(req, res)=>{
 
 const updateProduct = async (req, res) => {
   try {
-    console.log('req.fields:', req.fields);
-    console.log('req.params.pid:', req.params.pid);
-
+    await ConnectDB(); 
     const product = await productModel.findByIdAndUpdate(
       req.params.pid,
       { ...req.fields, slug: slugify(req.fields.name) },
@@ -131,6 +135,7 @@ const updateProduct = async (req, res) => {
 
 const relatedProduct = async(req, res)=>{
     try {
+        await ConnectDB();
         const {pid, cid} = req.params;
         const products = await productModel.find({category: cid, _id: {$ne: pid}}).select("-photo").limit(4).populate("category");
         res.status(200).send({success: true, msg: "Related products fetched successfully", products})
@@ -145,6 +150,7 @@ const relatedProduct = async(req, res)=>{
 
 const productCategory = async(req, res)=>{
     try {
+      await ConnectDB();
         const category = await categoryModel.findOne({slug: req.params.slug})
         const products = await productModel.find({category}).populate('category')
         res.status(200).send({success: true, msg: "Products fetched successfully", category, products})
@@ -159,6 +165,7 @@ const productCategory = async(req, res)=>{
 
 const Checkout = async (req, res) => {
   try {
+    await ConnectDB();
     const { cardName, cardNumber, expiration, cvv } = req.body;
 
     // Validation
@@ -213,9 +220,9 @@ const Checkout = async (req, res) => {
   }
 };
 
-
 const GetCheckout = async(req, res)=>{
   try {
+    await ConnectDB();
     const checkouts = await checkoutModel.find({})
     res.status(200).send({success: true, msg: "All checkouts", countCheckouts: checkouts.length, checkouts})
   } catch (error) {

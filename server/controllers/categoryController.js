@@ -1,10 +1,11 @@
 import slugify from "slugify";
 import categoryModel from "../models/categorySchema.js";
-
+import ConnectDB from "../utils/db.js";
 
 // createCategory
 const createCategory = async(req, res) => {
     try {
+        await ConnectDB();
         const {name} = req.body;
         if(!name) return res.status(400).send({error: "Category name is required"})
         const existingCategory = await categoryModel.findOne({name})
@@ -34,6 +35,7 @@ const createCategory = async(req, res) => {
 
 const updateCategory = async(req, res)=>{
     try {
+        await ConnectDB();
         const {name} = req.body;
         const {id} = req.params;
         const category = await categoryModel.findByIdAndUpdate(id, {name, slug: slugify(name)}, {new: true})
@@ -46,9 +48,9 @@ const updateCategory = async(req, res)=>{
 }
 
 // AllCategories
-
 const AllCategories = async(req, res)=>{
     try {
+        await ConnectDB();
         const categories = await categoryModel.find({})
         res.status(200).send({success: true, categories})     
     } catch (error) {
@@ -60,6 +62,7 @@ const AllCategories = async(req, res)=>{
 // SingleCategory
 const SingleCategory = async(req, res)=>{
     try {
+        await ConnectDB();
         const category = await categoryModel.findOne({slug: req.params.slug})
         if(!category) return res.status(404).send({success: false, message: "Category not found"})
         res.status(200).send({success: true, category})
@@ -72,6 +75,7 @@ const SingleCategory = async(req, res)=>{
 
 const DeleteCategory = async(req, res)=>{
     try {
+        await ConnectDB();
         const {id} = req.params;
         const category = await categoryModel.findByIdAndDelete(id)
         if(!category) return res.status(404).send({success: false, message: "Category not found"})
