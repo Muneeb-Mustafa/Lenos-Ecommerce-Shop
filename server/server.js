@@ -29,8 +29,7 @@ app.use(cors({
   }));
 
 app.use(express.json()); // Parse JSON request body
-app.use(morgan('dev')); // Log HTTP requests
-// app.use(formidableMiddleware()); // Handle form data
+app.use(morgan('dev')); // Log HTTP requests 
 
 // API Routes
 app.use('/api/auth', authRoute);
@@ -41,7 +40,7 @@ app.use('/api/contact', contactRoute);
 
 // Root Route
 app.get('/', (req, res) => {
-    res.send('<h1>Welcome to Ecommerce App!</h1>');
+    res.send('<h1>Welcome to Lenos Ecommerce Shop!</h1>');
 });
 
 // Start Server
